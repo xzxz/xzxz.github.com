@@ -4,14 +4,43 @@
 <title>xzxz</title>
 <style>
 body {
+background:#000;
 width:640px;
 margin:10px auto;
 font:normal 14px/20px 'Helvetica Neue';
 }
+h4 {
+font-size:12px;
+font-weight:normal;
+}
 </style>
 </head>
 <body>
-<h3>z7xz</h3>
-<p>elcome to my web-page</p>
+<canvas id='c'></canvas>
+<div class='wrapper'>
+<div class='left'>
+<h3></h3>
+<h4></h4>
+</div>
+</div>
+<script>
+var c = document.getElementById('c');
+c.width = 700;
+c.height = 400;
+var ctx = c.getContext('2d');
+ctx.fillStyle = '#000';
+var w = 0;
+window.setInterval(function() {
+	c.width=700;
+	for (var i = 0; i < 10; i++) {
+		ctx.fillStyle = (i % 2) ? '#a0a' : '#0ac';
+		ctx.rotate(i / 100);
+		ctx.fillRect(0, Math.sin(i + w) * 200 + 100, 2000, 1);
+		ctx.fillText('TWELCOME', 200, Math.sin(i + w) * 200 + 100);
+	}
+	w += 0.01;
+}, 10);
+</script>
+
 </body>
 </html>
